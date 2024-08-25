@@ -12,7 +12,7 @@ const App = () => {
         </Link>
 
         <Link
-          to={"/CreatePost"}
+          to={"/create-post"}
           className="font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md "
         >
           Create

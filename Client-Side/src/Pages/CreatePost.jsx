@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { getRandomPrompt } from "../Utils";
 import { FormField, Loader } from "../Components";
 import { preview } from "../assets";
@@ -40,11 +39,13 @@ const CreatePost = () => {
           body: JSON.stringify({ prompt: form.prompt }),
         });
 
-        const data = await response.json();
+        const data = await response;
+        console.log(data)
 
-        setform({ ...form, photo: "data:image/jpeg;base64,${data.photo}" });
+        setform({ ...form, photo: `data:image/jpeg;base64, ${data.photo}` });
       } catch (error) {
         alert(error);
+        console.log("catch block error")
       }
       finally{
         setgeneratingImg(false)
